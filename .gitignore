@@ -9,6 +9,7 @@
 
 # Ignore all environment files (except templates).
 /.env*
+!/.env.template
 !/.env*.erb
 
 # Ignore all logfiles and tempfiles.
@@ -28,6 +29,9 @@
 /tmp/storage/*
 !/tmp/storage/
 !/tmp/storage/.keep
+
+# Ignore postgres data
+/postgres/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key

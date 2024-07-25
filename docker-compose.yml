@@ -1,0 +1,19 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:16-alpine
+    env_file: .env
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    restart: always
+  web:
+    build:
+      context: .
+    env_file: .env
+    volumes:
+      - .:/rails
+    depends_on:
+      - postgres
+    ports:
+      - '3000:3000'
+    restart: always
