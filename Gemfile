@@ -35,6 +35,9 @@ gem "dotenv-rails"
 # Consume third party APIs
 gem 'httparty', '~> 0.22'
 
+# Custom JSON output
+gem 'active_model_serializers', '~> 0.10.14'
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

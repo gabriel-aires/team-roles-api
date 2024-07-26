@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :roles, only: [:index, :show, :create]
+  resources :memberships, only: [:index, :show, :create] do
+    collection do
+      get "lookup"
+    end
+  end
 end
