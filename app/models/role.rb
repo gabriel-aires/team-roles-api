@@ -1,5 +1,5 @@
 class Role < ApplicationRecord
-  has_many :memberships
+  has_many :memberships, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   validate :ensure_default_role_exists

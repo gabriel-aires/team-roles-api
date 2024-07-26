@@ -1,5 +1,8 @@
 class Membership < ApplicationRecord
-  belongs_to :role, optional: true
+  belongs_to :role
+
+  validates :user_id, :team_id, :role_id, :role, presence: true
+  validates :user_id, uniqueness: { scope: :team_id, message: "already has a role in this team" }
 
   after_initialize :set_default_role, if: :new_record?
 
