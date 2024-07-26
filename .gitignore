@@ -30,8 +30,5 @@
 !/tmp/storage/
 !/tmp/storage/.keep
 
-# Ignore postgres data
-/postgres/
-
 # Ignore master key for decrypting credentials and more.
 /config/master.key
