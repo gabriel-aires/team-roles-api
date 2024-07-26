@@ -9,7 +9,7 @@ module ExceptionHandler
   private
 
   def not_found(exception)
-    render json: { errors: ["#{e.model} not found"] }, status: :not_found
+    render json: { errors: ["#{exception.model} not found"] }, status: :not_found
   end
 
   def unprocessable_entity(exception)
