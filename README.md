@@ -75,4 +75,13 @@ In order to lookup a membership by user id and team id, I created a custom 'look
 
 The create method also required a service for validations and wrapping the functionality provided by the teams service client. Basically, an error response would be sent in case of missing parameters, role not found (via exception propagation), team not found or user not associated with the given team. Otherwise, membership would be created with the specified role or the default one, should the role_id parameter be absent.
 
-Finally, I used the `active_model_serializers` gem to customize the JSON output of the API. For the tests, I have used `rspec` and `webmock`. The app configuration was handled by `dotenv-rails`.
+Finally, I used the `active_model_serializers` gem to customize the JSON output of the API. For consuming the teams API, I used the `httparty` gem. For the tests, I have used `rspec` and `webmock`. The app configuration was handled by `dotenv-rails`.
+
+### Possible improvements
+
+- Add a sidekiq job to sync membership data with the teams service in order to handle user/team deletions
+- Accept camelCase parameters and transform the response accordingly
+- Add pagination to lists using a meta field or the Link header
+- Add unit tests for the service classes (couldn't do it because of time constraints)
+- In the case of the teams and users services, the response code should be 404 for records not found
+- Additionaly, those services should send proper error responses instead of null.
