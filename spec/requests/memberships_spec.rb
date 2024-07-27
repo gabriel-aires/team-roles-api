@@ -105,7 +105,10 @@ RSpec.describe "Memberships", type: :request do
   describe "POST /memberships" do
     context "with valid parameters" do
       it "creates a membership" do
-        post "/memberships", params: { user_id: user_three, team_id: team }
+        expect {
+          post "/memberships", params: { user_id: user_three, team_id: team }
+        }.to change { Membership.count }.by(1)
+        
         json = JSON.parse(response.body)
 
         expect(response).to have_http_status(:created)
