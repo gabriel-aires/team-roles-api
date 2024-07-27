@@ -7,4 +7,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :roles, only: [:index, :show, :create]
+  resources :memberships, only: [:index, :show, :create] do
+    collection do
+      get "lookup"
+    end
+  end
 end
