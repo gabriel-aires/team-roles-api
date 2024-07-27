@@ -21,13 +21,17 @@ Run `docker compose up -d` to start the Rails and Postgres containers
 
 ### Run Tests
 
-To execute the RSpec tests, open a new shell with `docker compose run web bash` and execute the following command inside the terminal:
+To execute the RSpec tests, open a new shell with `docker compose run web bash` and execute the following commands inside the terminal:
 
 ```
+RAILS_ENV=test ./bin/rails db:test:prepare
 RAILS_ENV=test bundle exec rspec -f d
 ```
 
 ### Available Endpoints
+
+#### Base URI
+http://0.0.0.0:3000
 
 #### GET /roles
 Returns all roles
